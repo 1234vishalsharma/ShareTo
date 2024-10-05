@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 const LeftNav = () => {
     const [mode , setMode] = useState("light");
-  return (
+    const token = false
+  if(token){ return (
     <div className="h-screen w-20 fixed left-0 top-0 flex flex-col justify-between items-center bg-black z-10 p-4">
         {/* Profile container */}
         <div className='overflow-hidden rounded-full h-16 w-full flex justify-center items-center'>
@@ -40,7 +41,10 @@ const LeftNav = () => {
             </div>
         </div>
     </div>
-  )
+  )}
+  else{
+    return (<></>);
+  }
 }
 
 export default LeftNav
