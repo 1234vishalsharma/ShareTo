@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
+import {useNavigate} from 'react-router-dom';
 
 
 function Home() {
@@ -8,6 +9,20 @@ function Home() {
     const one = useRef(null)
     const two = useRef(null)
     const three = useRef(null)
+    
+    const navigate = useNavigate();
+    const [files , setFiles] = useState();
+
+    const handelOpenExplorer = () => {
+      document.getElementById('fileInput').click();
+      if(files){
+        console.log("FIle selected " , files);
+      }
+    }
+
+    const HandelRecieverAction = () => {
+      navigate('/Reciever');
+    }
 
     useEffect(() => {
         // Create a GSAP timeline
@@ -38,8 +53,9 @@ function Home() {
 
 
         <div className='flex gap-8'>
-            <button  className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Send Data</button>
-            <button  className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Recieve Data</button>
+            <input onChange={(e) => setFiles(e.target.files)} type="file" id='fileInput' hidden/>
+            <button onClick={handelOpenExplorer} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Send Data</button>
+            <button onClick={HandelRecieverAction} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Recieve Data</button>
         </div>
       </div>
 
