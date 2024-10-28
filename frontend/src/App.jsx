@@ -2,6 +2,9 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Reciever from "./pages/Reciever";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Sender from "./pages/Sender";
 
 function App() {
   return (
@@ -26,6 +29,24 @@ function App() {
             path="/Reciever"
             element={
                 <Reciever />
+            }
+          />
+          <Route
+            path="/Sender"
+            element={
+                <Sender />
+            }
+          />
+          <Route
+            path="/Login"
+            element={
+                <Login />
+            }
+          />
+          <Route
+            path="/Signup"
+            element={
+                <Signup />
             }
           />
         </Routes>

@@ -1,29 +1,56 @@
-import React , {useState} from 'react'
+import React, { useState, useEffect } from 'react';
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000'); // Replace with your server URL
 
+const Receiver = () => {
+  const [roomID, setRoomID] = useState('');
+  const [receivedFile, setReceivedFile] = useState(null);
 
-const Reciever = () => {
-  const [roomID , setRoomId] = useState();
-  const [validate , setValidate] = useState(false);
-  const handelValidation = () => {
-    alert("Todo Task");
-    setValidate(!validate);
-  }
-  if(validate)  return (
-    <div className='h-screen w-screen flex flex-col gap-6 justify-center items-center'>
-        <p className='text-white text-8xl'>Loading...</p>
-        <p className='text-white text-3xl'>Your data downloaded automatically, Once sender sends it.</p>
-        <img className='rounded-xl' src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDk3cW80eGdtaTRrY2VkYWZwY2VtOWFvaWplOXhxZ3psaWkxYWJ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Yj2nHhbGsNQSrGyvI7/giphy.gif" width="480" height="480"></img>
+  const handleRoomJoin = () => {
+    socket.emit('receiver-join', roomID);
+    console.log('Receiver joined room: ', roomID);
+  };
+
+  useEffect(() => {
+    socket.on('data', (data) => {
+      console.log('Data received: ', data);
+      setReceivedFile(data.file);
+    });
+
+    return () => {
+      socket.off('data');
+    };
+  }, []);
+
+  const downloadFile = () => {
+    const link = document.createElement('a');
+    link.href = receivedFile;
+    link.download = 'received_file';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className='text-white'>
+      <h2>Receiver</h2>
+      <input
+        type="text"
+        value={roomID}
+        className="text-black"
+        placeholder="Enter Room ID"
+        onChange={(e) => setRoomID(e.target.value)}
+      />
+      <button onClick={handleRoomJoin}>Join Room</button>
+      <br />
+      {receivedFile && (
+        <div>
+          <h3>File Received</h3>
+          <button onClick={downloadFile}>Download File</button>
+        </div>
+      )}
     </div>
-  )
-  else return (
-    <div className='flex flex-col items-center'>
-      <div className='w-full flex gap-4 justify-center items-center h-64'>
-        <label className='text-2xl text-white font-semibold'>Enter room ID: </label>
-        <input className='p-3 rounded-md border-2 border-white outline-none w-80' type="text" onChange={(e) => setRoomId(e.target.value)}/>
-        <button onClick={handelValidation} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Validate ID</button>
-      </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Reciever
+export default Receiver;
