@@ -1,20 +1,36 @@
-import { Folder, HardDriveDownload, HardDriveUpload } from 'lucide-react'
 import React from 'react'
 
-const Card = (props) => {
-  return (
-    <div className='h-64 w-64 rounded-xl p-4 bg-[#abd6e9] text-black flex flex-col justify-between'>
-        <div className='rounded-full bg-[#9ecee3] w-20 overflow-hidden flex justify-center items-center p-3 h-20'>
-            {props.text == "Downloaded" ? <HardDriveUpload size={64} color="black" /> : null}
-            {props.text == "Recieved" ? <HardDriveDownload size={64} color="black" /> : null}
-            {props.text == "Used of 30 GB" ? <Folder size={64} color="black" /> : null}
-        </div>
-        <div>
-        <p className='text-4xl font-bold '>0 GB</p>
-        <span>{props.text}</span>
-        </div>
+const Card = ({ui}) => {
+
+
+    const RegisterUser = () => {
+
+    }
+    const LoginUser = () => {
+        
+    }
+
+  if(ui == "Login"){ return (
+    <div className='bg-yellow-500 h-[450px] w-96 rounded-md shadow-md flex flex-col gap-4 items-center justify-evenly'>
+        <p className='text-3xl text-center font-bold'>Login</p>
+        <div className='p-8 w-96 flex flex-col justify-evenly gap-4'>
+            <input type="email" className='p-3 outline-none w-full rounded-md' placeholder='Username'/>
+            <input type="password" className='p-3 outline-none w-full rounded-md' placeholder='Password'/>
+        </div> 
+        <button onClick={LoginUser} className='border border-yellow-500 bg-black text-yellow-500 p-4 w-56 rounded-md'> Login</button>     
     </div>
-  )
+  )}else if(ui == 'signup'){
+    return ( <div className='bg-yellow-500 h-[450px] w-96 rounded-md shadow-md flex flex-col gap-4 items-center justify-evenly'>
+        <p className='text-3xl text-center font-bold'>Signup</p>
+        <div className='p-8 w-96 flex flex-col justify-evenly gap-4'>
+            <input type="email" className='p-3 outline-none w-full rounded-md' placeholder='Username'/>
+            <input type="email" className='p-3 outline-none w-full rounded-md' placeholder='Name'/>
+            <input type="password" className='p-3 outline-none w-full rounded-md' placeholder='Set Password'/>
+        </div> 
+        <button onClick={RegisterUser} className='border border-yellow-500 bg-black text-yellow-500 p-4 w-56 rounded-md'>Create Account</button>     
+    </div>)
+  }
+
 }
 
 export default Card
