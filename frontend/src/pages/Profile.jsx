@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {useNavigate} from 'react-router-dom';
 const Profile = () => {
     const [user, setUser] = useState({
         photo: '', 
@@ -7,6 +7,7 @@ const Profile = () => {
         email: 'shivam@gmail.com',
         phone: '+9104498',
     });
+    const navigate = useNavigate();
 
     const [sharedFiles, setSharedFiles] = useState([
         { id: 1, name: 'file1.pdf', size: '2 MB' },
@@ -19,6 +20,7 @@ const Profile = () => {
     const [editedUser, setEditedUser] = useState(user);
 
     useEffect(() => {
+        
         setTimeout(() => setLoading(false), 2000); 
     }, []);
 
@@ -45,10 +47,9 @@ const Profile = () => {
             ) : (
                 <>
                     <nav className='flex justify-between items-center p-6 bg-[#1a1a1a]'>
-                        <span className='text-2xl font-bold'>ShareTo</span>
+                        <span onClick={() => navigate("/")} className='text-2xl font-bold cursor-pointer'>ShareTo</span>
                         <div className='flex gap-6'>
                             <a href="/" className='hover:underline'>Home</a>
-                            <a href="/history" className='hover:underline'>History</a>
                         </div>
                     </nav>
 

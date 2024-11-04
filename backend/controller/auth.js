@@ -35,8 +35,8 @@ const login = async(req,res) => {
 const signup  = async(req,res) => {
     try{
         console.log(req.body);
-        const {username , password, phoneNumber} = req.body;
-        const user = await User_model.create({username , password , phoneNumber});
+        const {username, name , password, phoneNumber} = req.body;
+        const user = await User_model.create({username, name , password , phoneNumber});
         if(user){
             return res.status(200).json({
                 'success': true,

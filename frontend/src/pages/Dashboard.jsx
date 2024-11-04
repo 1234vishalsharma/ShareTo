@@ -53,7 +53,7 @@ const Dashboard = () => {
   }, [files]);
   return (
     <div className={`${animationDone == false ? 'flex justify-center items-center' : ''}  w-screen h-screen`}>
-      <p className={`${animationDone == true ? 'hidden' : 'block'} text-white font-large font-serif flex flex-col text-center w-full`}><span ref={line1Ref} className="text-6xl one">Welcome To</span> <span ref={line2Ref} className="text-6xl font-bold two text-yellow-500">The</span> <span ref={line3Ref} className="text-7xl font-bold ml-72 three text-yellow-500"> ShareTo </span></p>
+      <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} className={`${animationDone == true ? 'hidden' : 'block'} text-white font-large font-serif flex flex-col text-center w-full`}><span ref={line1Ref} className="text-6xl one">Welcome To</span> <span ref={line2Ref} className="text-6xl font-bold two text-yellow-500">The</span> <span ref={line3Ref} className="text-7xl font-bold ml-72 three text-yellow-500"> ShareTo </span></p>
       { animationDone === true ? <Home/>  : null}
     </div>
   );
