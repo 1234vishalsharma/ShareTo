@@ -26,7 +26,7 @@ const Dashboard = () => {
       { x: '0%', duration: 1.5, stagger: 0.2, ease: 'power3.out' } // End in the center with staggered delay
     ).to(
       [line1Ref.current, line2Ref.current, line3Ref.current],
-      { fontSize: '240px', duration: 3, ease: 'power8.out', opacity: 0 },  // Increase font size smoothly
+      { fontSize: '220px', duration: 3, ease: 'power8.out', opacity: 0 },  // Increase font size smoothly
     )
   }, []);
 

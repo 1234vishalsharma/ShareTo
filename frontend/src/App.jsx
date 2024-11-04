@@ -5,6 +5,7 @@ import Reciever from "./pages/Reciever";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Sender from "./pages/Sender";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -47,6 +48,12 @@ function App() {
             path="/Signup"
             element={
                 <Signup />
+            }
+          />
+          <Route
+            path="/Profile"
+            element={
+                <Profile />
             }
           />
         </Routes>

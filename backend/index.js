@@ -124,6 +124,11 @@ io.on('connection', (socket) => {
         io.to(roomID).emit('data', data);
     });
 
+    socket.on('meta-data', ({name , size, roomID}) => {
+        console.log("meta-data received ", name , " ", size , " and sent to room:" ,  roomID);
+        io.to(roomID).emit('meta-data', {name , size});
+    });
+
     // Handle disconnection
     socket.on('disconnect', () => {
         console.log("User Disconnected: ", socket.id);
