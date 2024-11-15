@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import Header from '../components/Header'
+// const socket = io('https://shareto.onrender.com'); // Replace with your server URL
 const socket = io('http://localhost:5000'); // Replace with your server URL
 
 const Receiver = () => {

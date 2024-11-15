@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Sender from "./pages/Sender";
 import Profile from "./pages/Profile";
-
+import ProtectedAuth from "./ProtectedRoute/ProtectAuth"
 function App() {
   return (
     <>
@@ -17,25 +17,33 @@ function App() {
             path="/"
             element={
               
-                <Dashboard />
+                <ProtectedAuth>
+                  <Dashboard />
+                </ProtectedAuth>
             }
           />
           <Route
             path="/Dashboard"
             element={
-                <Dashboard />
+              <ProtectedAuth>
+              <Dashboard />
+            </ProtectedAuth>
             }
           />
           <Route
             path="/Reciever"
             element={
-                <Reciever />
+              <ProtectedAuth>
+              <Reciever />
+            </ProtectedAuth>
             }
           />
           <Route
             path="/Sender"
             element={
-                <Sender />
+              <ProtectedAuth>
+              <Sender />
+            </ProtectedAuth>
             }
           />
           <Route
@@ -53,7 +61,9 @@ function App() {
           <Route
             path="/Profile"
             element={
-                <Profile />
+              <ProtectedAuth>
+              <Profile />
+            </ProtectedAuth>
             }
           />
         </Routes>

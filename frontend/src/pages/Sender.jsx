@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import toast, { Toaster } from 'react-hot-toast';
 import Header from '../components/Header';
+// const socket = io('https://shareto.onrender.com'); // Replace with your server URL
 const socket = io('http://localhost:5000'); // Replace with your server URL
 
 const Sender = () => {

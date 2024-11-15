@@ -6,8 +6,7 @@ import Header from '../components/Header';
 function Home() {
 
     const navigate = useNavigate();
-    const [files , setFiles] = useState();
-
+  
     const HandelRecieverAction = () => {
       navigate('/Reciever');
     }

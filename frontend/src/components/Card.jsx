@@ -16,6 +16,7 @@ const Card = ({ui}) => {
         return;
       }
       try{
+        // fetch("https://shareto.onrender.com/api/signup" , {
         fetch("http://localhost:5000/api/signup" , {
           method : "POST", 
           headers : {
@@ -47,7 +48,9 @@ const Card = ({ui}) => {
         return;
       }
         try{
+          // fetch("https://shareto.onrender.com/api/Login" , {
           fetch("http://localhost:5000/api/Login" , {
+
           method : "POST", 
           headers : {
             "content-type" : "application/json" 
