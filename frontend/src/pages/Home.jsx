@@ -1,71 +1,50 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from "gsap";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import Header from '../components/Header';
 
 
 function Home() {
 
-  const title = useRef(null)
-  const one = useRef(null)
-  const two = useRef(null)
-  const three = useRef(null)
-  const four = useRef(null)
-
-  const navigate = useNavigate();
-  const [files, setFiles] = useState();
-
-
-  const GoToLogin = () => {
-    navigate('/Login');
-  }
-  const GoToSignup = () => {
-    navigate('/Signup');
-  }
-  const GoToProfile = () => {
-    navigate('/Profile');
-  }
-
-  const HandelRecieverAction = () => {
-    navigate('/Reciever');
-  }
-  const HandelSenderAction = () => {
-    navigate('/Sender');
-  }
-
-
-  useEffect(() => {
-    // Create a GSAP timeline
-    const tl = gsap.timeline();
-    // Animate the lines from the left to the center of the page
-    tl.fromTo(
-      [title.current, one.current, two.current, three.current,four.current],
-      { y: '-200%' },   // Start from outside the left of the viewport
-      { y: '0%', duration: 2, stagger: 0.3, ease: 'power3.out' } // End in the center with staggered delay
-    )
-  }, []);
+    const navigate = useNavigate();
+  
+    const HandelRecieverAction = () => {
+      navigate('/Reciever');
+    }
+    const HandelSenderAction = () => {
+      navigate('/Sender');
+    }
 
   return (
     <div>
-      <header className='absolute top-4 flex justify-between items-center w-screen pl-32 pr-32'>
-        <span ref={title} className='text-yellow-500 text-4xl font-bold font-serif'>ShareTo</span>
-        <div className='flex gap-10 max-md:hidden'>
-          <span ref={one} onClick={GoToLogin} className='text-yellow-500 text-2xl cursor-pointer font-serif'>Login</span>
-          <span ref={two} onClick={GoToSignup} className='text-yellow-500 text-2xl cursor-pointer font-serif'>Signup</span>
-          <span ref={three} className='text-yellow-500 text-2xl cursor-pointer font-serif'>Support</span>
-          <span ref={four} onClick={GoToProfile} className='text-yellow-500 text-2xl cursor-pointer font-serif'>Profile</span>
-        </div>
-      </header>
-      <div className={`flex gap-8 h-screen w-screen justify-between items-center p-64`}>
-        <div className='text-yellow-500'>
-          <p>
-            <span className='text-6xl font-semibold max-md:hidden'>WELCOME TO THE ShareTo</span>
-          </p>
-        </div>
+      <Header/>
+      <div className={`flex h-screen w-screen`}>
+        <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} 
+          className='text-[50px] absolute text-black top-32 left-36 flex justify-center items-center tracking-widest gap-2 text-center'>
+          <span className='text-black'>Effortless Sharing ,</span>
+          <span className='text-yellow-500 ml-4'> Instant Connections</span>
+        </p>
 
+        
 
-        <div className='flex gap-8'>
-          <button onClick={HandelSenderAction} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Send Data</button>
-          <button onClick={HandelRecieverAction} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Recieve Data</button>
+        <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} 
+          className='text-[180px] absolute text-black bottom-0 left-[350px] flex justify-center items-center tracking-widest'>
+          <span className='text-black'>Sha </span> 
+          <span className='text-yellow-500 ml-8'> reTo </span>
+        </p>
+        <div className='text-black bg-yellow-500 height-full w-2/4 flex flex-col gap-8 justify-center items-center'>
+        <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} 
+          className='text-[50px] text-black flex justify-center items-center tracking-widest gap-2 text-center'>
+          <span className='text-black'>Are u a Sender</span>
+        </p>
+            <button style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} onClick={HandelSenderAction} className='text-yellow-500 shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-black'>Send Data</button>
+        </div>
+        
+        <div className='flex flex-col gap-8 w-2/4 bg-black justify-center items-center'>
+        <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} 
+          className='text-[50px] text-black flex justify-center items-center tracking-widest gap-2 text-center'>
+          <span className='text-yellow-500'>or a Reciever</span>
+        </p>
+            <button style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} onClick={HandelRecieverAction} className='text-black shadow-white shadow-sm w-32 border-2 h-12 font-bold border-white rounded-md bg-yellow-500'>Recieve Data</button>
         </div>
       </div>
 

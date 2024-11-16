@@ -26,7 +26,7 @@ const Dashboard = () => {
       { x: '0%', duration: 1.5, stagger: 0.2, ease: 'power3.out' } // End in the center with staggered delay
     ).to(
       [line1Ref.current, line2Ref.current, line3Ref.current],
-      { fontSize: '240px', duration: 3, ease: 'power8.out', opacity: 0 },  // Increase font size smoothly
+      { fontSize: '220px', duration: 3, ease: 'power8.out', opacity: 0 },  // Increase font size smoothly
     )
   }, []);
 
@@ -34,26 +34,16 @@ const Dashboard = () => {
     setAnimationDone(true);
   }, 4000);
 
-  const socket = io("http://localhost:8000");
+  // const socket = io('https://shareto.onrender.com');
+  const socket = io('http://localhost:5000');
   console.log("I reached here just before on init event");
   socket.on("Data", (data) => {
     console.log("Connection established", data);
   });
 
-  const router = useNavigate();
-  const [files, setFiles] = useState([]);
-  const SelectFiles = () => {
-    document.getElementById("selectFiles").click();
-  };
-  const recieveData = () => {
-    router("/Reciever");
-  };
-  useEffect(() => {
-    console.log("Files are: ", files);
-  }, [files]);
   return (
     <div className={`${animationDone == false ? 'flex justify-center items-center' : ''}  w-screen h-screen`}>
-      <p className={`${animationDone == true ? 'hidden' : 'block'} text-white font-large font-serif flex flex-col text-center w-full`}><span ref={line1Ref} className="text-6xl one">Welcome To</span> <span ref={line2Ref} className="text-6xl font-bold two text-yellow-500">The</span> <span ref={line3Ref} className="text-7xl font-bold ml-72 three text-yellow-500"> ShareTo </span></p>
+      <p style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} className={`${animationDone == true ? 'hidden' : 'block'} text-white font-large font-serif flex flex-col text-center w-full`}><span ref={line1Ref} className="text-6xl one">Welcome To</span> <span ref={line2Ref} className="text-6xl font-bold two text-yellow-500">The</span> <span ref={line3Ref} className="text-7xl font-bold ml-72 three text-yellow-500"> ShareTo </span></p>
       { animationDone === true ? <Home/>  : null}
     </div>
   );
