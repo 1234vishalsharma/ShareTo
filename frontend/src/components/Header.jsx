@@ -35,6 +35,7 @@ const Header = () => {
             {token && <span style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} onClick={GoToProfile} className='text-yellow-500 text-xl cursor-pointer font-serif'>Profile</span>}
             {token && <span style={{ "font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal" }} onClick={GoToSuport} className='text-yellow-500 text-xl cursor-pointer font-serif'>Support</span>}
 
+            <span style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} className='text-yellow-500 text-xl cursor-pointer font-serif'>Support</span>
         </div>
       </header>
   )

@@ -13,6 +13,7 @@ function App() {
     <>
       <BrowserRouter>
 
+        
         <Routes>
           <Route
             path="/"
@@ -21,6 +22,10 @@ function App() {
               <ProtectedAuth>
                 <Dashboard />
               </ProtectedAuth>
+              
+                <ProtectedAuth>
+                  <Dashboard />
+                </ProtectedAuth>
             }
           />
           <Route
@@ -29,6 +34,8 @@ function App() {
               <ProtectedAuth>
                 <Dashboard />
               </ProtectedAuth>
+              <Dashboard />
+            </ProtectedAuth>
             }
           />
           <Route
@@ -37,6 +44,8 @@ function App() {
               <ProtectedAuth>
                 <Reciever />
               </ProtectedAuth>
+              <Reciever />
+            </ProtectedAuth>
             }
           />
           <Route
@@ -45,12 +54,15 @@ function App() {
               <ProtectedAuth>
                 <Sender />
               </ProtectedAuth>
+              <Sender />
+            </ProtectedAuth>
             }
           />
           <Route
             path="/Login"
             element={
               <Login />
+                <Login />
             }
           />
           <Route
@@ -60,6 +72,9 @@ function App() {
             }
           />
 
+                <Signup />
+            }
+          />
           <Route
             path="/Profile"
             element={
@@ -73,6 +88,8 @@ function App() {
             path="/Support"
             element={
               <Support />
+              <Profile />
+            </ProtectedAuth>
             }
           />
         </Routes>

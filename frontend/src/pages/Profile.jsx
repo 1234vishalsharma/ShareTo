@@ -4,6 +4,11 @@ import Header from '../components/Header';
 const Profile = () => {
     const [user, setUser] = useState({
         photo: '',
+import {useNavigate} from 'react-router-dom';
+import Header from '../components/Header';
+const Profile = () => {
+    const [user, setUser] = useState({
+        photo: '', 
         name: 'USER',
         username: 'USER@gmail.com',
         phoneNumber: '+9123456789',
@@ -22,7 +27,8 @@ const Profile = () => {
 
     const fetchUser = () => {
         // fetch(`https://shareto.onrender.com/api/GetUser?id=${localStorage.getItem("token")}` , {
-        fetch(`http://localhost:5000/api/GetUser?id=${localStorage.getItem("token")}`, {
+//         fetch(`http://localhost:5000/api/GetUser?id=${localStorage.getItem("token")}`, {
+        fetch(`http://localhost:5000/api/GetUser?id=${localStorage.getItem("token")}` , {
             method: "GET",
         }).then((result) => {
             return result.json();
@@ -32,6 +38,11 @@ const Profile = () => {
             setLoading(false);
         }).catch(e => {
             console.log("Error in fetching the user", e);
+            console.log("User is: " , res.User);
+            setUser(res.User);
+            setLoading(false);
+        }).catch(e => {
+            console.log("Error in fetching the user" , e);
         })
     }
 
@@ -56,6 +67,7 @@ const Profile = () => {
 
     return (
         <div style={{ "font-weight": "400", "font-style": "normal" }} className='w-full h-screen bg-black text-yellow-500'>
+        <div style={{"font-family": "Rubik Wet Paint", "font-weight": "400", "font-style": "normal"}} className='w-full h-screen bg-black text-yellow-500'>
             {loading ? (
                 <div className='flex justify-center items-center h-full'>
                     <div className='loader ease-linear rounded-full border-4 border-t-4 border-yellow-500 h-12 w-12'></div>
@@ -63,6 +75,7 @@ const Profile = () => {
             ) : (
                 <>
                     <Header />
+                    <Header/>
 
                     <div className='flex flex-col items-center p-8 animate__animated animate__fadeIn pt-32'>
                         {/* User Profile Section */}
