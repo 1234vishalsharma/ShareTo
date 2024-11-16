@@ -20,7 +20,7 @@ const Support = () => {
             answer: "No, ShareTo does not require an internet connection. As long as both devices are connected to the same local network (e.g., the same WiFi network), they can connect and transfer files without needing access to the internet.",
         },
         {
-            question: "Is my data stored anywhere on external servers?",
+            question: " Is my data stored anywhere on external servers?",
             answer: "No, ShareTo does not store any data on external servers or databases. All files are transferred directly between PCs, so your data remains on your devices and does not leave your local network.",
         },
         {
