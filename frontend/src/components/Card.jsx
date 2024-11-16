@@ -31,15 +31,16 @@ const Card = ({ui}) => {
         }).then((result) => {
           return result.json();
         }).then((response) => {
-          console.log("Response is : " , response);
           if(response.success){
             navigate("/Login")
+          }else{
+            toast.error("Cannot Create Account")
           }
         }).catch((err) => {
-          console.log("Error caught: " , err.message);
+          toast.error("Sorry, Error Occured");
         })
       }catch(e){
-        console.log("Error in Signup user : ", e);
+        toast.error("Error in USER SIGN_UP");
       }
     }
     const LoginUser = () => {
@@ -49,7 +50,6 @@ const Card = ({ui}) => {
       }
         try{
           fetch(`${BASE_URL}/Login` , {
-
           method : "POST", 
           headers : {
             "content-type" : "application/json" 
@@ -61,14 +61,13 @@ const Card = ({ui}) => {
           }).then((result) => {
             return result.json();
           }).then((response) => {
-            console.log("Response is : " , response);
             localStorage.setItem("token" , response.UserData._id);
             navigate("/");
           }).catch((err) => {
-            console.log("Error caught: " , err.message);
+            toast.error("USER LOGIN FAILED");
           })
         }catch(e){
-          console.log("Error in login" , e);
+          toast.error("Exception Occured");
         }
     }
 

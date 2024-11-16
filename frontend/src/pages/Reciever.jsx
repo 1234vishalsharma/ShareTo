@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import toast , {Toaster} from 'react-hot-toast';
 import io from 'socket.io-client';
 import Header from '../components/Header';
 const socket = io('https://shareto.onrender.com'); 
@@ -37,7 +38,7 @@ const Receiver = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    alert('File downloaded successfully!');
+    toast.success('File downloaded successfully!');
   };
 
   const resetRoom = () => {
@@ -45,7 +46,7 @@ const Receiver = () => {
     setRoomJoined(false);
     setMetaData(null);
     setReceivedFile(null);
-    alert('Room reset successfully!');
+    taost.success('Room reset successfully!');
   };
 
   return (
@@ -122,11 +123,11 @@ const Receiver = () => {
         {roomJoined && (
           <button
             onClick={resetRoom}
-            className='w-full max-w-lg px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-400 mt-4'
-          >
+            className='w-full max-w-lg px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-400 mt-4'>
             Reset Room
           </button>
         )}
+        <Toaster/>
       </div>
     </>
   );

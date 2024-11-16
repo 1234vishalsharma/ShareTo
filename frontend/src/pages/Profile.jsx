@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import toast , {Toaster} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 const BASE_URL = import.meta.env.VITE_API_URL;
@@ -27,17 +28,15 @@ const Profile = () => {
         }).then((result) => {
             return result.json();
         }).then((res) => {
-            console.log("User is: ", res.User);
             setUser(res.User);
             setLoading(false);
         }).catch(e => {
-            console.log("Error in fetching the user", e);
+            toast.error("Exception Occured" , e);
         })
     }
 
     useEffect(() => {
         fetchUser();
-        // setTimeout(() => setLoading(false), 2000); 
     }, []);
 
     const handleEdit = () => {
@@ -51,7 +50,7 @@ const Profile = () => {
     };
 
     const handleDelete = () => {
-        alert('Delete account functionality to be implemented');
+        toast('Delete account functionality to be implemented');
     };
 
     return (
@@ -161,6 +160,7 @@ const Profile = () => {
                     )}
                 </>
             )}
+            <Toaster/>
         </div>
     );
 };

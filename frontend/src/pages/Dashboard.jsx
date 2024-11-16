@@ -33,11 +33,6 @@ const Dashboard = () => {
   setTimeout(() => {
     setAnimationDone(true);
   }, 4000);
-  const socket = io('https://shareto.onrender.com');
-  console.log("I reached here just before on init event");
-  socket.on("Data", (data) => {
-    console.log("Connection established", data);
-  });
 
   return (
     <div className={`${animationDone == false ? 'flex justify-center items-center' : ''}  w-screen h-screen`}>

@@ -41,7 +41,6 @@ const Support = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setIsSubmitted(true);
-        console.log("Contact Form Submitted:", contactForm);
     };
 
     return (

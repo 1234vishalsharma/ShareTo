@@ -8,9 +8,6 @@ const Header = () => {
     const location = useLocation();
     const token = localStorage.getItem("token");
     const color = window.location.pathname == "/" ? "black" : "yellow-500";
-    useEffect(() => {
-      console.log(window.location);
-    } , []);
 
       const GoToLogin = () => {
         navigate('/Login');
