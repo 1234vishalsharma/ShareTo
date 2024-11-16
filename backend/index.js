@@ -76,8 +76,6 @@ const path = require('path');
 
 require('dotenv').config();
 
-let rooms = [];
-
 const app = express();
 app.use(cors());
 

@@ -65,7 +65,7 @@ const Sender = () => {
     setRoomID('');
     setRoomCreated(false);
     setFile(null);
-    toast('Room reset successfully!');
+    toast.success('Room reset successfully!');
   };
 
   return (
