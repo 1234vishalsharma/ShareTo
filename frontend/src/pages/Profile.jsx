@@ -23,7 +23,7 @@ const Profile = () => {
     const [editedUser, setEditedUser] = useState(user);
 
     const fetchUser = () => {
-        fetch(`${BASE_URL}/GetUser?id=${localStorage.getItem("token")}`, {
+        fetch(`${BASE_URL}/api/GetUser?id=${localStorage.getItem("token")}`, {
             method: "GET",
         }).then((result) => {
             return result.json();

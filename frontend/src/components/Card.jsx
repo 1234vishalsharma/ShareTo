@@ -17,7 +17,7 @@ const Card = ({ui}) => {
         return;
       }
       try{
-        fetch(`${BASE_URL}/signup` , {
+        fetch(`${BASE_URL}/api/signup` , {
           method : "POST", 
           headers : {
             "content-type" : "application/json" 
@@ -49,7 +49,7 @@ const Card = ({ui}) => {
         return;
       }
         try{
-          fetch(`${BASE_URL}/Login` , {
+          fetch(`${BASE_URL}/api/Login` , {
           method : "POST", 
           headers : {
             "content-type" : "application/json" 

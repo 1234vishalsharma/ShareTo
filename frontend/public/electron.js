@@ -10,7 +10,7 @@ const createWindow = () => {
       },
     })
   
-    win.loadURL("http://localhost:8081")
+    win.loadURL("https://share-to-keal.vercel.app/")
 }
 
   app.on('window-all-closed', () => {
