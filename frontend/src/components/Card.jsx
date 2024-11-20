@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import process from 'process';
 import toast , {Toaster} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-const BASE_URL = import.meta.env.VITE_API_URL;
 const Card = ({ui}) => {
-
+  
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [username , setUsername] = useState("");
   const [name , setName] = useState("");
   const [password , setPassword] = useState("");
