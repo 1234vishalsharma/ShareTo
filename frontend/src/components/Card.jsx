@@ -12,6 +12,7 @@ const Card = ({ui}) => {
   const navigate = useNavigate();
 
     const RegisterUser = () => {
+      console.log("URl : " , BASE_URL);
       if(!username || !name || !password || !phonenumber){
         toast.error("Field's cant be empty");
         return;
@@ -49,6 +50,7 @@ const Card = ({ui}) => {
         return;
       }
         try{
+          console.log("URl : " , BASE_URL);
           fetch(`${BASE_URL}/api/Login` , {
           method : "POST", 
           headers : {
